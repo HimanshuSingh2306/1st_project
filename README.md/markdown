@@ -1,0 +1,20 @@
+# Student Performance Prediction
+
+Machine Learning project developed during AIML Summer Internship 2026.
+
+## Objective
+Predict student exam score using various academic and personal factors.
+
+## Algorithm Used
+- Linear Regression
+
+## Libraries
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-Learn
+- Joblib
+
+## Author
+Himanshu
