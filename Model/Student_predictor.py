@@ -1,9 +1,13 @@
 import joblib
-model = joblib.load("student_score_model.pkl")
+model = joblib.load("Model/student_score_model.pkl")
 print("model loaded successfully")
 
 hours_studied = float(input("Hours Studied(In a week): "))
 attendance = int(input("Attendance: "))
+#adding feature
+Study_Efficiency = (
+   hours_studied*attendance
+)
 
 Parental_Involvement = int(input("Parental_Involvement (low=0, medium = 1 ,high = 2)) :  "))
 
@@ -107,7 +111,8 @@ new_student = [[
     Extracurricular_Activities_Yes,
 
     Learning_Disabilities_No,
-    Learning_Disabilities_Yes
+    Learning_Disabilities_Yes,
+    Study_Efficiency
 ]]
 
 predicted_score = model.predict(new_student)
