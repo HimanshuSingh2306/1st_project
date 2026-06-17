@@ -10,9 +10,9 @@ except Exception as e:
     st.error(f"Error Loading Model: {e}")
     
 hours_studied = st.number_input(
-  "Hours Studied",
+  "Hours Studied(Average of Study Hours in a Week)",
   min_value=0.0,
-  max_value=50.0
+  max_value=90.0
 )
 attendance = st.number_input(
   "Attendance",
@@ -20,116 +20,175 @@ attendance = st.number_input(
   max_value=100
 )
 study_efficiency = (hours_studied*attendance)
-Parental_Involvement = st.number_input(
-  "Parental Involment",
-  min_value=0,
-  max_value=2
+Parental_Involvement = st.selectbox("Parental Involment",["low","Medium","High"])
+if Parental_Involvement == "low":
+  Parental_Involvement = 0
+elif Parental_Involvement == "Medium":
+  Parental_Involvement=1
+else:
+ Parental_Involvement = 2
+    
+
+Access_to_Resources = st.selectbox(
+  "Access_to_Resources",["low","Medium","High"]
 )
-Access_to_Resources = st.number_input(
-  "Access_to_Resources",
-  min_value=0,
-  max_value=2
-)
+if Access_to_Resources == "low":
+  Access_to_Resources = 0
+elif Access_to_Resources == "Medium":
+  Access_to_Resources=1
+else:
+ Access_to_Resources = 2
+ 
 Sleep_Hours = st.number_input(
-  "Sleep_Hours",
+  "Sleep_Hours(In a day)",
   min_value=0,
   max_value=24
 )
 Previous_Scores = st.number_input(
-  "Previous_Scores",
+  "Previous_Scores( max = 100 )",
   min_value= 0,
   max_value= 100
 )
-Motivation_Level = st.number_input(
+
+
+Motivation_Level = st.selectbox(
   "Motivation_Level",
-  min_value= 0,
-  max_value= 2
+ ["low","Medium","High"]
 )
-Family_Income = st.number_input(
-  "Family_Income(low=0, medium = 1 ,high = 2)",
-  min_value=0,
-  max_value=2
+if Motivation_Level == "low":
+  Motivation_Level = 0
+elif Motivation_Level == "Medium":
+  Motivation_Level=1
+else:
+ Motivation_Level = 2
+ 
+ 
+Family_Income = st.selectbox(
+  "Family_Income",["low","Medium","High"]
 )
+if Family_Income == "low":
+  Family_Income = 0
+elif Family_Income == "Medium":
+  Family_Income=1
+else:
+ Family_Income = 2
+ 
+ 
+ 
 Tutoring_Sessions = st.number_input(
   "Tutoring_Sessions",
   min_value=0,
   max_value=100
 )
-Teacher_Quality = st.number_input(
-  "Teacher_Quality",
-  min_value= 0,
-  max_value=2
+
+
+
+Teacher_Quality = st.selectbox(
+  "Teacher_Quality",["low","Medium","High"])
+if Teacher_Quality == "low":
+  Teacher_Quality = 0
+elif Teacher_Quality == "Medium":
+  Teacher_Quality=1
+else:
+ Teacher_Quality = 2
+ 
+ 
+ 
+
+Peer_Influence = st.selectbox(
+  "Peer_Influence",["low","Medium","High"]
 )
-Peer_Influence = st.number_input(
-  "Peer_Influence",
-  min_value=0,
-  max_value=2
-)
+if Peer_Influence == "low":
+  Peer_Influence = 0
+elif Peer_Influence == "Medium":
+  Peer_Influence=1
+else:
+ Peer_Influence = 2
+ 
+ 
+ 
 Physical_Activity = st.number_input(
   "Physical_Activity",
   min_value=0,
   max_value=50
 )
-Parental_Education_Level = st.number_input(
-  "Parental_Education_Level",
-  min_value=0,
-  max_value=2
+
+
+
+Parental_Education_Level = st.selectbox(
+  "Parental_Education_Level",["High School","Graduate","Postgraduate"]
 )
-Distance_from_Home = st.number_input(
-  "Distance_from_Home",
-  min_value=0,
-  max_value=2
+if Parental_Education_Level == "High School":
+    Parental_Education_Level = 0
+elif Parental_Education_Level == "Graduate":
+  Parental_Education_Level = 1
+else:
+  Parental_Education_Level = 2
+  
+  
+        
+Distance_from_Home = st.selectbox(
+  "Distance_from_Home",["Near", "Moderate","Far"]
 )
-Female = st.number_input(
-  "Female (yes =1 , no = 0)",
-  min_value=0,
-  max_value=1
+if Distance_from_Home == "Near":
+  Distance_from_Home = 0
+elif Distance_from_Home == "Moderate":
+  Distance_from_Home = 1
+else:
+  Distance_from_Home = 2
+  
+      
+gender = st.selectbox("Gender",["Male", "Female"])
+if gender=="Male":
+  Male = 1
+  Female = 0
+else:
+  Male  = 0
+  Female = 1  
+
+School_Type = st.selectbox("School Type",["Private","Government"])
+if School_Type == "Private":
+  School_Type_Private = 1
+  School_Type_Public = 0
+else:   
+  School_Type_Private = 0
+  School_Type_Public = 1
+
+
+Internet_Access = st.selectbox(
+  "Internet_Access " , ["Yes", "No"]
 )
-Male = st.number_input(
-  "Male (yes =1 , no = 0):  ",
-  min_value=0,
-  max_value=1
+if Internet_Access == "Yes":
+  Internet_Access_Yes = 1
+  Internet_Access_No = 0
+else:
+  Internet_Access_Yes = 0
+  Internet_Access_No = 1
+    
+
+
+Extracurricular_Activities = st.selectbox(
+  "Extracurricular_Activities ", ["Yes", "No"]
 )
-School_Type_Private = st.number_input(
-  "School_Type_Private (yes =1 , no = 0)",
-  min_value=0,
-  max_value=1
-)
-School_Type_Public = st.number_input(
-  "School_Type_Public (yes =1 , no = 0) ",
-  min_value=0,
-  max_value=1
-)
-Internet_Access_No = st.number_input(
-  "Internet_Access_No (yes =1 , no = 0)",
-  min_value=0,
-  max_value=1
-)
-Internet_Access_Yes = st.number_input(
-  "Internet_Access_Yes (yes =1 , no = 0)",
-  min_value=0,
-  max_value=1
-)
-Extracurricular_Activities_No = st.number_input(
-  "Extracurricular_Activities_No (yes =1 , no = 0)",
-  min_value=0,
-  max_value=1
-)
-Extracurricular_Activities_Yes = st.number_input(
-  "Extracurricular_Activities_Yes (yes =1 , no = 0)",
-  min_value=0,
-  max_value=1
-)
-Learning_Disabilities_No = st.number_input(
-  "Learning_Disabilities_No (yes =1 , no = 0)",
-  min_value=0,
-  max_value=1
-)
-Learning_Disabilities_Yes = st.number_input(
-  "Learning_Disabilities_Yes (yes =1 , no = 0)",
-  min_value=0,
-  max_value=1
-)
+if Extracurricular_Activities == "Yes":
+  Extracurricular_Activities_Yes = 1
+  Extracurricular_Activities_No = 0
+else:
+    Extracurricular_Activities_Yes = 0
+    Extracurricular_Activities_No = 1
+    
+    
+
+Learning_Disabilities = st.selectbox(
+  "Learning_Disabilities",["Yes", "No"])
+if Learning_Disabilities == "Yes":
+  Learning_Disabilities_Yes = 1
+  Learning_Disabilities_No = 0
+else:
+   Learning_Disabilities_Yes = 0
+   Learning_Disabilities_No = 1
+    
+ 
 st.write("Hours studied: ",hours_studied)
 st.write("Attendance: ",attendance)
 st.write("Study_efficiency: ",study_efficiency)
