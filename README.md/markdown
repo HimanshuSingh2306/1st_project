@@ -1,20 +1,133 @@
-# Student Performance Prediction
+# Student Performance Prediction Using Machine Learning
 
-Machine Learning project developed during AIML Summer Internship 2026.
+## Project Overview
 
-## Objective
-Predict student exam score using various academic and personal factors.
+This project aims to predict student examination scores using Machine Learning techniques. Various academic, behavioral, and socio-economic factors were analyzed to understand their impact on student performance.
 
-## Algorithm Used
-- Linear Regression
+The project follows the complete Machine Learning lifecycle, including data preprocessing, exploratory data analysis (EDA), feature engineering, model training, evaluation, and deployment.
 
-## Libraries
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Scikit-Learn
-- Joblib
+---
 
-## Author
-Himanshu
+## Dataset
+
+Dataset Name: StudentPerformanceFactors.csv
+
+Target Variable:
+
+* Exam_Score
+
+Important Features:
+
+* Hours_Studied
+* Attendance
+* Sleep_Hours
+* Previous_Scores
+* Motivation_Level
+* Teacher_Quality
+* Family_Income
+* Peer_Influence
+* Access_to_Resources
+* Distance_from_Home
+* Gender
+
+---
+
+## Data Preprocessing
+
+The following preprocessing steps were performed:
+
+* Missing value handling
+* Duplicate checking
+* Ordinal encoding
+* One-Hot Encoding
+* Correlation analysis
+* Feature selection
+
+Missing values were handled in:
+
+* Teacher_Quality
+* Parental_Education_Level
+* Distance_from_Home
+
+---
+
+## Feature Engineering
+
+A new feature was created:
+
+Study_Efficiency = Hours_Studied × Attendance
+
+This feature combines study effort and attendance into a single meaningful metric.
+
+---
+
+## Machine Learning Models Used
+
+1. Linear Regression
+2. Random Forest Regressor
+3. XGBoost Regressor
+
+---
+
+## Model Evaluation Results
+
+| Model             | MAE    | MSE    | RMSE   | R² Score |
+| ----------------- | ------ | ------ | ------ | -------- |
+| Linear Regression | 0.4477 | 3.3309 | 1.8251 | 0.7721   |
+| Random Forest     | 1.0804 | 4.8672 | 2.2062 | 0.6670   |
+| XGBoost           | 0.9206 | 4.7942 | 2.1896 | 0.6720   |
+
+### Final Selected Model
+
+Linear Regression
+
+Reason:
+
+* Highest R² Score
+* Lowest Prediction Error
+* Best Overall Performance
+
+---
+
+## Deployment
+
+The final model was saved using Joblib and deployed using Streamlit.
+
+The application allows users to:
+
+* Enter student information
+* Generate real-time score predictions
+* Interact through a simple web interface
+
+---
+
+## Technologies Used
+
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+* Scikit-Learn
+* XGBoost
+* Streamlit
+* Joblib
+
+---
+
+## Project Workflow
+
+Dataset Collection
+→ Data Preprocessing
+→ Exploratory Data Analysis
+→ Feature Engineering
+→ Model Training
+→ Model Evaluation
+→ Model Selection
+→ Streamlit Deployment
+
+---
+
+## Conclusion
+
+This project successfully developed an end-to-end Machine Learning system for predicting student examination scores. Among all tested algorithms, Linear Regression achieved the best performance and was selected for deployment.

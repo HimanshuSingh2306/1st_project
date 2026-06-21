@@ -76,9 +76,9 @@ else:
  
  
 Tutoring_Sessions = st.number_input(
-  "Tutoring_Sessions",
+  "Tutoring_Sessions(in a week)",
   min_value=0,
-  max_value=100
+  max_value=10
 )
 
 
@@ -96,11 +96,11 @@ else:
  
 
 Peer_Influence = st.selectbox(
-  "Peer_Influence",["low","Medium","High"]
+  "Peer_Influence",["Negative","Neutral","Positive"]
 )
-if Peer_Influence == "low":
+if Peer_Influence == "Negative":
   Peer_Influence = 0
-elif Peer_Influence == "Medium":
+elif Peer_Influence == "Neutral":
   Peer_Influence=1
 else:
  Peer_Influence = 2
@@ -108,7 +108,7 @@ else:
  
  
 Physical_Activity = st.number_input(
-  "Physical_Activity",
+  "Physical_Activity(How many hours in a week )",
   min_value=0,
   max_value=50
 )
