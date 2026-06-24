@@ -1,12 +1,27 @@
 # write this(streamlit run Streamlit_App/app.py) in terminal and run it and reach to the app dashboard
 import streamlit as st
 import joblib
+import os
 
 st.title("Student Performance Prediction")
 
 try:
-    model = joblib.load("Model/student_score_model.pkl")
+    BASE_DIR = os.path.dirname(
+        os.path.dirname(
+            os.path.abspath(__file__)
+        )
+    )
+
+    MODEL_PATH = os.path.join(
+        BASE_DIR,
+        "Model",
+        "student_score_model.pkl"
+    )
+
+    model = joblib.load(MODEL_PATH)
+
     st.success("Model Loaded Successfully")
+
 except Exception as e:
     st.error(f"Error Loading Model: {e}")
     
