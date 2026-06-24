@@ -1,3 +1,4 @@
+# write this(streamlit run Streamlit_App/app.py) in terminal and run it and reach to the app dashboard
 import streamlit as st
 import joblib
 
